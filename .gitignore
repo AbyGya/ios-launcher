@@ -1,0 +1,12 @@
+web/node_modules/
+web/dist/
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/release.keystore
+keystore/
+*.log
+.DS_Store
+.idea/
+.vscode/
