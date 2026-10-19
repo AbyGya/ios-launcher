@@ -4,7 +4,7 @@ plugins {
 
 val versionCodeEnv = System.getenv("VERSION_CODE")?.toIntOrNull() ?: 1
 val versionNameEnv = System.getenv("VERSION_NAME") ?: "0.1.0"
-val keystorePath = System.getenv("KEYSTORE_PATH")
+val keystorePath = System.getenv("KEYSTORE_PATH")?.takeIf { it.isNotBlank() }
 
 android {
   namespace = "com.abygya.ioslauncher"
@@ -16,7 +16,10 @@ android {
     targetSdk = 36
     versionCode = versionCodeEnv
     versionName = versionNameEnv
-    resourceConfigurations += listOf("en", "in")
+  }
+
+  androidResources {
+    localeFilters += listOf("en", "in")
   }
 
   signingConfigs {
